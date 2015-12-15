@@ -9,10 +9,14 @@ public class Message {
         }
     }
 
+    public String getMessage() {
+        return message;
+    }
+
     public static String encrypt(String msg) {
         StringBuilder end = new StringBuilder();
         StringBuilder temp = new StringBuilder();
-        
+
         for (int i = 0; i < msg.length(); i++) {
             temp.append(String.valueOf((int)(msg.charAt(i))));
             temp.reverse();
@@ -23,7 +27,7 @@ public class Message {
         end.delete(end.length() - 3, end.length());
         return end.toString();
     }
-    
+
     public static String decrypt(String msg) {
         StringBuilder end = new StringBuilder();
         StringBuilder temp = new StringBuilder();
@@ -34,7 +38,7 @@ public class Message {
             end.append((char)(Integer.parseInt(temp.toString())));
             temp.delete(0, temp.length());
         }
-        
+
         return end.toString();
     }
 }
